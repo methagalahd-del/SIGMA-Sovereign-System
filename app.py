@@ -3,15 +3,23 @@ import streamlit as st
 import hashlib
 from datetime import datetime
 
-# إعدادات الصفحة السيادية (تم استبدال الشعار بالنجمة)
-st.set_page_config(page_title="SIGMA Sovereign System", page_icon="⭐")
+# إعدادات الواجهة السيادية (أيقونة النجمة الذهبية)
+st.set_page_config(page_title="نظام SIGMA السيادي", page_icon="⭐")
 
-# الهوية البصرية الرسمية - أسود وذهبي ملكي
+# الهوية البصرية الرسمية - أسود ملكي وذهبي فخم
 st.markdown(f"""
-    <div style="background-color:#000000; padding:30px; border-radius:15px; border-bottom: 5px solid #d4af37; text-align:center; color:#d4af37;">
-        <h1 style="color:#d4af37; font-size:28px;">⭐ نظام التفاعل السيادي الخوارزمي بين الإنسان والذكاء الاصطناعي</h1> <h2 style="color:#ffffff; font-size:20px; margin-top:10px;">المخترع والمستشار القانوني: فهد بن منصور العرجاني</h2>
-        <p style="color:#d4af37; font-size:16px;">براءة اختراع رقم: PCT/SA/2026/050007</p>
-        <p style="color:#ffffff; font-size:18px; font-weight:bold;">📞 للتواصل: 0531111745</p>
+    <style>
+    .main {{
+        background-color: #000000;
+    }}
+    stTextArea textarea {{
+        background-color: #1a1a1a;
+        color: #d4af37;
+    }}
+    </style>
+    <div style="background-color:#000000; padding:30px; border-radius:15px; border-bottom: 5px solid #d4af37; text-align:center;">
+        <h1 style="color:#d4af37; font-size:28px; margin-bottom:10px;">⭐ نظام التفاعل السيادي الخوارزمي بين الإنسان والذكاء الاصطناعي</h1> <h2 style="color:#ffffff; font-size:20px;">المخترع والمستشار القانوني: فهد بن منصور العرجاني</h2> <p style="color:#d4af37; font-size:16px;">براءة اختراع رقم: PCT/SA/2026/050007</p>
+        <p style="color:#ffffff; font-size:18px; font-weight:bold; border: 1px solid #d4af37; display: inline-block; padding: 5px 15px; border-radius: 10px;">📞 للتواصل: 0531111745</p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -28,6 +36,7 @@ with col2:
 
 st.write("\n")
 
+# زر التحليل بتصميم سيادي
 if st.button("⚖️ تحليل التوافق والسيادة السيجمي"):
     if human_intent and ai_proposal:
         # حساب مؤشر الانحراف المعرفي CDI
@@ -39,13 +48,13 @@ if st.button("⚖️ تحليل التوافق والسيادة السيجمي")
         st.markdown(f"<h2 style='text-align:center; color:#ffffff;'>📊 مؤشر الانحراف: <span style='color:#d4af37;'>{round(cdi, 2)}</span></h2>", unsafe_allow_html=True)
        
         if cdi < 0.45:
-            st.success("✅ APPROVED: التفاعل معتمد سيادياًومتوافق مع النية البشرية")
+            st.success("✅ APPROVED: التفاعل معتمد سيادياً ومتوافق مع النية البشرية")
             token = hashlib.sha256(f"{human_intent}{ai_proposal}".encode()).hexdigest()[:16]
             st.code(f"Sovereign Token: {token}", language='text')
         else:
-            st.error("❌ BLOCKED: تم حظر التنفيذ - رصد انحراف سيادي")
-            st.warning("تنبيه أمني: المقترح يتجاوز حدود السيادة المبرمجة")
+            st.error("❌ BLOCKED: تم حظر التنفيذ - رصد انحراف معرفي سيادي")
     else:
-        st.warning("يرجى إدخال البيانات المطلوبة للتحليل.")
+        st.warning("يرجى إدخال البيانات المطلوبة لبدء التحليل.")
 
 st.markdown("<br><br><hr><p style='text-align:center; color:#d4af37;'>جميع الحقوق محفوظة للمخترع والمستشار القانوني © فهد العرجاني 2026</p>", unsafe_allow_html=True)
+
